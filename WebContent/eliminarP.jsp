@@ -8,16 +8,14 @@
 <title>Agregar datos de Persona</title>
 </head>
 <body>
-<h1>Agregar Persona</h1>
-<s:form action="save">
-  <s:textfield label="Nombre" name="name"></s:textfield>
-  <s:textfield label="Edad" name="age"></s:textfield>
-  <s:radio label="Genero" name="gender" list="#{'Femenino':'Femenino','Masculino':'Masculino'}" />
-  <s:submit></s:submit>
-  <s:actionerror/>
+<h1>Eliminar Persona</h1>
+<s:form action="eliminar">
+		<s:textfield label="ID a eliminar" name="id"></s:textfield>
+		<s:submit></s:submit>
+		<s:actionerror/>
 </s:form>
 <p>
- <a href="<s:url action='index'/>">Volver</a>
+	<a href="<s:url action='index'/>">Volver</a>
 </p>
 </body>
 </html>

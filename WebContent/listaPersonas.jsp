@@ -5,17 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar datos de Persona</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Agregar Persona</h1>
-<s:form action="save">
-  <s:textfield label="Nombre" name="name"></s:textfield>
-  <s:textfield label="Edad" name="age"></s:textfield>
-  <s:radio label="Genero" name="gender" list="#{'Femenino':'Femenino','Masculino':'Masculino'}" />
-  <s:submit></s:submit>
-  <s:actionerror/>
-</s:form>
+<h1>Lista de Personas</h1>
+  <table>
+   <tr>
+    <th>ID</th>
+    <th>NOMBRE</th>
+    <th>EDAD</th>
+    <th>GENERO</th>
+   </tr>
+  <s:iterator value="personas" var="p">
+   <tr>
+    <td><s:property value="#p.id"/></td>
+    <td><s:property value="#p.name"/></td>
+    <td><s:property value="#p.age"/></td>
+    <td><s:property value="#p.gender"/></td>
+   </tr>
+   </s:iterator>
+  </table>
 <p>
  <a href="<s:url action='index'/>">Volver</a>
 </p>

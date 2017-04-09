@@ -15,15 +15,28 @@
 	<h1>ABM</h1>
 	<p>
 		<!-- este es un link al action "hello" que está definido en el struts.xml -->
-		<a href="<s:url action='save'/>">Ejecutar el action (utn.frd.action.PersonaAction -> metodo save)</a>
-		Esta regla está definida en el archivo struts.xml
+		<a href="<s:url action='save'/>">Alta -> metodo save)</a>
+		
 		
 	</p>
 	<p>
 		<!-- este es un link al action "hello" que está definido en el struts.xml -->
-		<a href="<s:url action='execute'/>">Ejecutar el action (utn.frd.action.PersonaAction -> metodo execute)</a>
-		Esta regla está definida en el archivo struts.xml
+		<a href="<s:url action='execute'/>">Lista -> metodo execute)</a>
+		
 		
 	</p>
+	<p>
+		<!-- este es un link al action "hello" que está definido en el struts.xml -->
+		<a href="<s:url action='eliminar'/>">Baja-> metodo eliminar)</a>
+	
+		
+	</p>
+	<p>
+		<!-- este es un link al action "hello" que está definido en el struts.xml -->
+		<a href="<s:url action='modificar'/>">Modificar-> metodo modificar)</a>
+	
+		
+	</p>
+
 </body>
 </html>

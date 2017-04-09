@@ -1,18 +1,21 @@
 package utn.frd.action;
+
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.*;
+import utn.frd.db.PersistentManager;
+import utn.frd.bean.MessageStore;
+import utn.frd.bean.Persona;
+import java.util.ArrayList;
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import utn.frd.bean.Persona;
-import utn.frd.db.PersistentManager;
-
-public class PersonaAction extends ActionSupport {
+public class PersonaAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String age;
 	private String gender;
-	
+	private List<Persona> personas;
+	private String id;
+	private String alta;
 	public String save(){
 		List<Persona> personas = PersistentManager.getInstance();
 		int edad = 0;
@@ -24,43 +27,102 @@ public class PersonaAction extends ActionSupport {
 			return ERROR;
 		}
 
-		Persona unaPersona = new Persona(personas.size(), name, edad, gender);
+		Persona unaPersona = new Persona(personas.size(), name, edad, gender, true);
 		PersistentManager.getInstance().add(unaPersona);
-		
 		return SUCCESS;
-	
 	}
 	public String execute(){
-		
-		personas = PersistentManager.getInstance();
-		Persona p =personas.get(0);
+		List<Persona> personas1 = PersistentManager.getInstance();
+		ArrayList<Persona> personasTrue = new ArrayList<Persona>();
+		for(int i = 0; i < personas1.size();i++) {
+			Persona per = personas1.get(i);
+			if (per.getAlta() == true) {
+				personasTrue.add(per);
+			}	
+		}
+		personas=personasTrue;
 		return SUCCESS;
 	}
+	
+	public String eliminar(){
+		personas = PersistentManager.getInstance();
+		int ide=0;
+		try{
+			ide = Integer.parseInt(id);
+		}catch(Exception e){
+			addActionError("Ocurrió un error con el ID");
+			return ERROR;
+		}
+		for(int i = 0; i < personas.size();i++) {
+			Persona p = PersistentManager.getInstance().get(i);
+			if (p.getId() == ide) {
+				p.setAlta(false);
+			}
+				}		
+		return SUCCESS;
+		}
+	public String modificar(){
+		int ide=0;
+		int edad=0;
+		
+		personas = PersistentManager.getInstance();
+		try{
+			ide = Integer.parseInt(id);
+		}catch(Exception e){
+			addActionError("Ocurrió un error con el ID");
+			return ERROR;
+		}
+		
+		for(int i = 0; i < personas.size();i++) {
+			Persona p = PersistentManager.getInstance().get(i);
+			if (p.getId() == ide) {
+				if (!(name.equals(""))) {
+					p.setName(name);
+				}
+				try{
+					edad = Integer.parseInt(age);
+				}catch(Exception e){
 
-	private List<Persona> personas;
-	
-	
+				}
+				if (edad!=0) {
+					p.setAge(edad);
+				}
+				if (gender!=null) {
+					p.setGender(gender);
+				}
+
+				if (alta != null) {
+				if (alta.equals("t")) {
+
+					p.setAlta(true);
+				}
+				if (alta.equals("f")) {
+
+					p.setAlta(false);
+				}			
+				}
+			}
+		} 
+		return SUCCESS;
+	}
+		
 	
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getAge() {
 		return age;
 	}
-
 	public void setAge(String age) {
 		this.age = age;
+		
 	}
-
 	public String getGender() {
 		return gender;
 	}
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
@@ -70,6 +132,16 @@ public class PersonaAction extends ActionSupport {
 	public void setPersonas(List<Persona> personas) {
 		this.personas = personas;
 	}
-
-
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getAlta() {
+		return alta;
+	}
+	public void setAlta(String alta) {
+		this.alta = alta;
+	}
 }

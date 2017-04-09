@@ -8,11 +8,13 @@
 <title>Agregar datos de Persona</title>
 </head>
 <body>
-<h1>Agregar Persona</h1>
-<s:form action="save">
+<h1>Modificar Persona</h1>
+<s:form action="modificar">
+  <s:textfield label="Id" name="id"></s:textfield>
   <s:textfield label="Nombre" name="name"></s:textfield>
   <s:textfield label="Edad" name="age"></s:textfield>
   <s:radio label="Genero" name="gender" list="#{'Femenino':'Femenino','Masculino':'Masculino'}" />
+   <s:radio label="Validar Alta" name="alta" list="#{'t':'Alta','f':'Baja'}" />
   <s:submit></s:submit>
   <s:actionerror/>
 </s:form>

@@ -22,7 +22,15 @@
     	<result name="success">/personas.jsp</result>
     </action>
     <action name="execute" class="utn.frd.action.PersonaAction" method="execute">
-         <result name="success">/listaDePersonas.jsp</result>
+         <result name="success">/listaPersonas.jsp</result>
+    </action>
+     <action name="eliminar" class="utn.frd.action.PersonaAction" method="eliminar">
+         <result name="success">/eliminarP.jsp</result>
+         <result name="error">/eliminarP.jsp</result>
+    </action>
+    <action name="modificar" class="utn.frd.action.PersonaAction" method="modificar">
+         <result name="success">/modificarP.jsp</result>
+         <result name="error">/modificarP.jsp</result>
     </action>
 
     </package>
