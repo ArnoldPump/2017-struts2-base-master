@@ -11,11 +11,11 @@
 <h1>Eliminar Persona</h1>
 <s:form action="eliminar">
 		<s:textfield label="ID a eliminar" name="id"></s:textfield>
-		<s:submit></s:submit>
+		<s:submit value="Eliminar"></s:submit>
 		<s:actionerror/>
 </s:form>
 <p>
-	<a href="<s:url action='index'/>">Volver</a>
+	<a href="<s:url action='index'/>">Menú</a>
 </p>
 </body>
 </html>

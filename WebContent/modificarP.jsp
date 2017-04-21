@@ -14,12 +14,11 @@
   <s:textfield label="Nombre" name="name"></s:textfield>
   <s:textfield label="Edad" name="age"></s:textfield>
   <s:radio label="Genero" name="gender" list="#{'Femenino':'Femenino','Masculino':'Masculino'}" />
-   <s:radio label="Validar Alta" name="alta" list="#{'t':'Alta','f':'Baja'}" />
-  <s:submit></s:submit>
+  <s:submit value="Modificar"></s:submit>
   <s:actionerror/>
 </s:form>
 <p>
- <a href="<s:url action='index'/>">Volver</a>
+ <a href="<s:url action='index'/>">Menú</a>
 </p>
 </body>
 </html>

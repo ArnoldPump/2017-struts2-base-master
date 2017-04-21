@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Lista de Personas</h1>
-  <table>
+  <table border=3>
    <tr>
     <th>ID</th>
     <th>NOMBRE</th>
@@ -26,7 +26,7 @@
    </s:iterator>
   </table>
 <p>
- <a href="<s:url action='index'/>">Volver</a>
+ <a href="<s:url action='index'/>">Menú</a>
 </p>
 </body>
 </html>
