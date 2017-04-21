@@ -35,7 +35,6 @@ public class PersonaAction extends ActionSupport{
 		List<Persona> personas1 = PersistentManager.getInstance();
 		ArrayList<Persona> personasTrue = new ArrayList<Persona>();
 		for(Persona p:personas1) {
-			
 			if (p.getAlta() == true) {
 				personasTrue.add(p);
 			}	
